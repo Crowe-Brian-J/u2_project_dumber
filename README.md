@@ -3,7 +3,7 @@
 ## 25 May 2023
 
 ### by Brian Crowe
-
+(Because none of us is as dumb as all of us)
 ---
 
 ## **_Description_**
@@ -17,5 +17,5 @@ I rewrote this this morning because I was originally going to do some sort of sm
 _Known_
 Users have a 1:M relationship with posts
 Users have a 1:M relationship (hopefully) with followers (also users)
-Feed has a M:M relationship with posts (based on followers)
+Feed has a M:M relationship with posts (based on followers) --> Maybe one feed filtered by followers would be easier?
 Tweets may eventually be able to chain in a post, where the chain would have to follow, but also branch
