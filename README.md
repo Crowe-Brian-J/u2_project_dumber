@@ -1,10 +1,10 @@
-**_Dumber_**
+#**_Dumber_**
+
+#### (Because none of us is as dumb as all of us) -Despair.com
 
 ## 25 May 2023
 
 ### by Brian Crowe
-
-#### (Because none of us is as dumb as all of us)
 
 ---
 
@@ -22,3 +22,34 @@ _Known_
 - Users have a 1:M relationship (hopefully) with followers (also users)
 - Feed has a M:M relationship with posts (based on followers) --> Maybe one feed filtered by followers would be easier?
 - Tweets may eventually be able to chain in a post, where the chain would have to follow, but also branch
+
+---
+
+## **_Technologies Used_**
+
+- Node.js
+- Express
+- Mongoose/MongoDB
+- Heroku
+
+---
+
+## **_MVP_**
+
+- 2 Data Entities (plus User Model)
+  - Feed
+  - Posts
+- Use OAuth Authentication (GoogleAPI)
+  - Seems similar to what we did for OAuth in Lesson 5/25
+- Implement Basic Authorization
+  - Only user can post from own account
+  - Only original user can delete own post
+- Have CRD Data Operations
+  - Can't edit/update Twitter - Can't do it for dumber
+  - Create Post
+  - Read User Posts
+  - Read All Followed Users Posts
+  - Delete Post
+- Be Styled
+  - Bootstrap
+  - Custom CSS When Necessary
