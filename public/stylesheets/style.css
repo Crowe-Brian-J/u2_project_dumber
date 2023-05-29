@@ -1,0 +1,14 @@
+body {
+  color: #29a348;
+  background-color: #1c1c1a;
+  padding: 20px;
+  font-family: 'Monomaniac One', sans-serif;
+  font-size: 3vmin;
+}
+
+a {
+  font-size: 2vmin;
+  color: #e6e8e6;
+  text-decoration: none;
+}
+

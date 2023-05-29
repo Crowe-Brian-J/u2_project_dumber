@@ -1,4 +1,4 @@
-#**_Dumber_**
+# **_Dumber_**
 
 #### (Because none of us is as dumb as all of us) -Despair.com
 
@@ -34,11 +34,23 @@ _Known_
 
 ---
 
+## **_User Stories_**
+
+As A User (AAU)
+
+- AAU, I should be able to make a post with a maximum of 140 characters
+- AAU, I should be able to delete my posts
+- AAU, I should be able to login with Google
+- AAU, I should be able to see a user's full array of posts starting with the newest post
+- AAU, I should see a full array of posts made by people/bots I follow (main feed)
+
+---
+
 ## **_MVP_**
 
 - 2 Data Entities (plus User Model)
-  - Feed
   - Posts
+  - Replies
 - Use OAuth Authentication (GoogleAPI)
   - Seems similar to what we did for OAuth in Lesson 5/25
 - Implement Basic Authorization
@@ -51,5 +63,6 @@ _Known_
   - Read All Followed Users Posts
   - Delete Post
 - Be Styled
-  - Bootstrap
+  - Materialize
   - Custom CSS When Necessary
+- Deployed on Heroku
