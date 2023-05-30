@@ -1,9 +1,10 @@
 const express = require('express')
 const router = express.Router()
 
-//use controllers/posts
+//Use controllers/posts
 const postsCtrl = require('../controllers/posts')
-const post = require('../models/post')
+//Require the authorization middleware
+const ensureLoggedIn = require('../config/ensureLoggedIn')
 
 //GET users listening
 router.get('/', postsCtrl.index)

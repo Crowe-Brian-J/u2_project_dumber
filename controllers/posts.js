@@ -1,8 +1,10 @@
 const Post = require('../models/post')
-const User = require('../models/user')
+//Not needed yet
+//const User = require('../models/user')
 
 const index = async (req, res) => {
-  res.render('/posts/index', { posts: await Post.find() })
+  const posts = await Post.find({})
+  res.render('/posts/index', { title: 'All Posts', posts })
 }
 
 const createPost = async (req, res) => {

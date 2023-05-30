@@ -4,15 +4,17 @@ const Schema = mongoose.Schema
 
 const replySchema = new Schema(
   {
-    user: {
-      type: mongoose.ObjectId,
-      ref: 'User',
-      required: true
-    },
     replyText: {
       type: String,
       required: true
-    }
+    },
+    user: {
+      type: Schema.Types.ObjectId,
+      ref: 'User',
+      required: true
+    },
+    userName: String,
+    userAvatar: String
   },
   {
     timestamps: true
@@ -21,15 +23,17 @@ const replySchema = new Schema(
 
 const postSchema = new Schema(
   {
-    user: {
-      type: mongoose.ObjectId,
-      ref: 'User',
-      required: true
-    },
     postText: {
       type: String,
       required: true
     },
+    user: {
+      type: Schema.Types.ObjectId,
+      ref: 'User',
+      required: true
+    },
+    userName: String,
+    userAvatar: String,
     replies: [replySchema]
   },
   { timestamps: true }
