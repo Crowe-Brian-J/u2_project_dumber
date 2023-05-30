@@ -8,7 +8,7 @@ router.get('/', (req, res, next) => {
 })
 //Google OAuth login route
 router.get(
-  'auth/google',
+  '/auth/google',
   passport.authenticate(
     //Which passport strategy is being used?
     'google',

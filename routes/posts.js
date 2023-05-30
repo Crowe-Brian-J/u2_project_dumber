@@ -6,12 +6,13 @@ const postsCtrl = require('../controllers/posts')
 //Require the authorization middleware
 const ensureLoggedIn = require('../config/ensureLoggedIn')
 
-//GET users listening
-router.get('/', postsCtrl.index)
+//GET posts listing
+router.get('/posts', postsCtrl.index)
 
 //POST new post
-router.post('/', ensureLoggedIn, postsCtrl.createPost)
+router.post('/posts', ensureLoggedIn, postsCtrl.createPost)
 
-router.delete('/', ensureLoggedIn, postsCtrl.deletePost)
+//DELETE post
+router.delete('/posts/:id', ensureLoggedIn, postsCtrl.deletePost)
 
 module.exports = router

@@ -6,7 +6,8 @@ const replySchema = new Schema(
   {
     replyText: {
       type: String,
-      required: true
+      required: true,
+      maxLength: 140
     },
     user: {
       type: Schema.Types.ObjectId,
@@ -25,7 +26,8 @@ const postSchema = new Schema(
   {
     postText: {
       type: String,
-      required: true
+      required: true,
+      maxLength: 140
     },
     user: {
       type: Schema.Types.ObjectId,
