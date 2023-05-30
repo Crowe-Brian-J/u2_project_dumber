@@ -1,0 +1,13 @@
+<%- include('../partials/header.ejs')%>
+  <!-- Not sure if I should just include this as an extra header as it should be displayed on your own user page and the main page-->
+  <form action="/posts" method="POST">
+    <input type="text" name="post-thought" placeholder="What's on your mind?">
+  </form>
+  <br><br>
+  <% if(posts){%>
+    <% posts.forEach((p)=> { %>
+      <%= p.postText %>
+        <%= p.user %>
+          <% })} %>
+
+            <%- include('../partials/footer.ejs') %>

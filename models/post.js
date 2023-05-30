@@ -4,7 +4,12 @@ const Schema = mongoose.Schema
 
 const replySchema = new Schema(
   {
-    text: {
+    user: {
+      type: mongoose.ObjectId,
+      ref: 'User',
+      required: true
+    },
+    replyText: {
       type: String,
       required: true
     }
@@ -21,7 +26,7 @@ const postSchema = new Schema(
       ref: 'User',
       required: true
     },
-    text: {
+    postText: {
       type: String,
       required: true
     },

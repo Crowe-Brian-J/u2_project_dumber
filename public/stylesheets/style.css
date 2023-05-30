@@ -12,3 +12,9 @@ a {
   text-decoration: none;
 }
 
+input[name="post-thought"] {
+  height: 5vmin;
+  width: 100%;
+  font-family: 'Monomaniac One', sans-serif;
+  font-size: 1.75vmin;
+}
