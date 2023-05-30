@@ -10,4 +10,8 @@ const ensureLoggedIn = require('../config/ensureLoggedIn')
 router.get('/', postsCtrl.index)
 
 //POST new post
-router.post('/', postsCtrl.createPost)
+router.post('/', ensureLoggedIn, postsCtrl.createPost)
+
+router.delete('/', ensureLoggedIn, postsCtrl.deletePost)
+
+module.exports = router

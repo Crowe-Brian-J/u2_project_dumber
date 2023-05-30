@@ -29,7 +29,11 @@ app.use(express.urlencoded({ extended: false }))
 app.use(cookieParser())
 app.use(methodOverride('_mehtod'))
 app.use(
-  session({ secret: process.env.SECRET, resave: false, saveUninitiated: true })
+  session({
+    secret: process.env.SECRET,
+    resave: false,
+    saveUninitialized: true
+  })
 )
 app.use(passport.initialize())
 app.use(passport.session())
@@ -48,12 +52,12 @@ app.use('/', postsRouter)
 app.use('/', repliesRouter)
 
 // catch 404 and forward to error handler
-app.use(function (req, res, next) {
+app.use((req, res, next) => {
   next(createError(404))
 })
 
 // error handler
-app.use(function (err, req, res, next) {
+app.use((err, req, res, next) => {
   // set locals, only providing error in development
   res.locals.message = err.message
   res.locals.error = req.app.get('env') === 'development' ? err : {}

@@ -18,3 +18,14 @@ input[name="post-thought"] {
   font-family: 'Monomaniac One', sans-serif;
   font-size: 1.75vmin;
 }
+
+.login {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 34px;
+}
+
+.login img {
+  height: 30px;
+}

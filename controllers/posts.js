@@ -19,7 +19,22 @@ const createPost = async (req, res) => {
   }
 }
 
+const deletePost = (req, res, next) => {
+  Post.findOne({
+    'posts._id': req.params.id,
+    'posts.user': req.user._id
+  }).then((post) => {
+    //Rogue user!
+    if (!post) return res.redirect('/posts')
+    //Remove the post using the remove method available on Mongoose arrays
+    post.remove(req.params.id)
+    //Save the updated post object?
+    res.redirect('/posts')
+  })
+}
+
 module.exports = {
   index,
-  createPost
+  createPost,
+  deletePost
 }
