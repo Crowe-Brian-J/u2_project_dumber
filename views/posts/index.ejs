@@ -1,7 +1,7 @@
 <%- include('../partials/header.ejs')%>
-  <!-- Not sure if I should just include this as an extra header as it should be displayed on user page and the main page-->
+
   <form action="/posts" method="POST">
-    <input type="text" id="post-text" placeholder="What's on your mind, dummy?">
+    <input type="text" name="postText" id="post-text" placeholder="What's on your mind, dummy?">
   </form>
   <br><br>
   <main>
@@ -10,20 +10,19 @@
         <% posts.forEach((p)=> { %>
           <article>
             <%= p.postText %>
-              <%= p._id %>
-                <br>
-                <!--Delete Post-->
-                <% if (user?._id.equals(p.user)) {%>
-                  <form action="/posts/<%= p._id %>?_method=DELETE" class="delete-post" method="POST">
-                    <label for="delete-post">Delete Post?</label>
-                    <button type="submit">X</button>
-                  </form>
-                  <% } %>
-                    <div id="usernameLog">
-                      <img alt="avatar" src="<%=p.userAvatar %>" referrerpolicy="no-referrer">&nbsp;<a
-                        href="">Reply?</a>
-                    </div>
+              <br>
+              <!--Delete Post-->
+              <% if (user?._id.toString()===(p.user.toString())) {%>
+                <form action="/posts/<%= p._id %>?_method=DELETE" class="delete-post" method="POST">
+                  <label for="delete-post">Delete Post?</label>
+                  <button type="submit">X</button>
+                </form>
+                <% } %>
+                  <div id="avatar">
+                    <img alt="avatar" src="<%=p.userAvatar %>" referrerpolicy="no-referrer">&nbsp;<a href="">Reply?</a>
+                  </div>
           </article>
           <% })} %>
   </main>
+
   <%- include('../partials/footer.ejs') %>
