@@ -5,6 +5,8 @@ const router = express.Router()
 const usersCtrl = require('../controllers/users')
 
 /* GET users listing */
-router.get('/', usersCtrl.index)
+router.get('/users', usersCtrl.index)
+/* GET /users/:id (show functionality) */
+router.get('/users/:id', usersCtrl.show)
 
 module.exports = router

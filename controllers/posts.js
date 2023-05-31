@@ -13,7 +13,6 @@ const show = async (req, res) => {
 }
 
 const createPost = async (req, res) => {
-  console.log('Banana')
   //Add the user-centric info to req.body of the new post
   req.body.user = req.user._id
   req.body.userName = req.user.name

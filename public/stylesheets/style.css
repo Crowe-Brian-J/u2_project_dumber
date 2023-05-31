@@ -46,9 +46,14 @@ main {
   border-radius: 5%;
 }
 
+#avatar-reply img {
+  border-radius: 50%;
+  height: 20px;
+}
+
 #avatar img {
   border-radius: 50%;
-  height: 20px
+  height: 40px;
 }
 
 .delete-post button {
@@ -100,8 +105,23 @@ color: #2274a5
 }
 
 #replies-populated {
-  margin-left: 40px;
+  margin-left: 10%;
+  margin-right: 20%;
   background-color: rgb(156, 156, 156);
   border-radius: 5%;
   font-size: 1.75vmin;
+}
+
+#reply-delete {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+}
+
+#reply-post {
+  display: flex;
+  flex-direction: row;
+  border-top: solid 1px #2274a5;
+  border-bottom: solid 1px #1c1c1a;
+  justify-content: space-between;
 }
