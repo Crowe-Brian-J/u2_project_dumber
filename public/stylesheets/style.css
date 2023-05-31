@@ -13,8 +13,7 @@ body {
 }
 
 a {
-  font-size: 2vmin;
-  color: #e6e8e6;
+  color: #29a348;
   text-decoration: none;
 }
 
@@ -80,4 +79,15 @@ button {
   background: none;
   font-family: 'Monomaniac One', sans-serif;
   font-size: 1.75vmin;
+}
+
+#reply-link {
+  color: #2274a5;
+  font-size: 1.75vmin;
+}
+
+#post-nav-show {
+  display: flex;
+  flex-direction: row;
+  justify-content: end;
 }

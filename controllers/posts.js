@@ -7,6 +7,11 @@ const index = async (req, res) => {
   res.render('posts/index', { title: 'dummer', posts })
 }
 
+const show = async (req, res) => {
+  const post = await Post.findById(req.params.id)
+  res.render('posts/show', { title: 'dummer', post })
+}
+
 const createPost = async (req, res) => {
   console.log('Banana')
   //Add the user-centric info to req.body of the new post
@@ -31,6 +36,7 @@ const deletePost = async (req, res, next) => {
 
 module.exports = {
   index,
+  show,
   createPost,
   deletePost
 }

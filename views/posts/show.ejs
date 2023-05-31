@@ -1,0 +1,32 @@
+<%- include('../partials/header.ejs')%>
+
+  <main id="show-post">
+    <% console.log(post) %>
+      <div id="total-post">
+        <article id="postId">
+          <%= post.postText %>
+            <div id="avatar">
+              <img src="<%= post.userAvatar %>" alt="avatar" referrerpolicy="no-referer">&nbsp;
+            </div>
+        </article>
+        <article id="post-nav-show">
+          <% if (user?._id.toString()===(post.user.toString())) { %>
+            <form action="/posts/<%= post._id %>?_method=DELETE" class="delete-post" method="POST"><button
+                type="submit">Delete?</button></form>
+            <% } %>
+        </article>
+      </div>
+  </main>
+  <br>
+  <% console.log(user?._id) %>
+    <% if(post.replies) { %>
+      <section id="repliesPopulated">
+      </section>
+      <% } %>
+        <section id="reply-box">
+          <form action="/posts/<%= post._id %>/replies" method="POST">
+            <input type="text" name="replyText" id="post-text" placeholder="Got something to say?">
+          </form>
+        </section>
+
+        <%- include('../partials/footer.ejs') %>
