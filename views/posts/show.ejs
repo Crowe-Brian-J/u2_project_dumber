@@ -1,26 +1,32 @@
 <%- include('../partials/header.ejs')%>
 
   <main id="show-post">
-    <% console.log(post) %>
-      <div id="total-post">
-        <article id="postId">
-          <%= post.postText %>
-            <div id="avatar">
-              <img src="<%= post.userAvatar %>" alt="avatar" referrerpolicy="no-referer">&nbsp;
-            </div>
-        </article>
-        <article id="post-nav-show">
-          <% if (user?._id.toString()===(post.user.toString())) { %>
-            <form action="/posts/<%= post._id %>?_method=DELETE" class="delete-post" method="POST"><button
-                type="submit">Delete?</button></form>
-            <% } %>
-        </article>
-      </div>
+    <div id="total-post">
+      <article id="postId">
+        <%= post.postText %>
+          <div id="avatar">
+            <img src="<%= post.userAvatar %>" alt="avatar" referrerpolicy="no-referer">&nbsp;
+          </div>
+      </article>
+      <article id="post-nav-show">
+        <% if (user?._id.toString()===(post.user.toString())) { %>
+          <form action="/posts/<%= post._id %>?_method=DELETE" class="delete-post" method="POST"><button
+              type="submit">Delete?</button></form>
+          <% } %>
+      </article>
+    </div>
   </main>
-  <br>
-  <% console.log(user?._id) %>
+  <% console.log(post.replies) %>
     <% if(post.replies) { %>
-      <section id="repliesPopulated">
+      <section id="replies-populated">
+        <% post.replies.forEach((r)=> { %>
+          <div>
+            <%= r.replyText %>
+          </div>
+          <div id="avatar">
+            <img src="<%= r.userAvatar %>" alt="avatar">
+          </div>
+          <% }) %>
       </section>
       <% } %>
         <section id="reply-box">

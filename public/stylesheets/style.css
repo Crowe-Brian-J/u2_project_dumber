@@ -46,9 +46,9 @@ main {
   border-radius: 5%;
 }
 
-article img {
+#avatar img {
   border-radius: 50%;
-  height: 40px
+  height: 20px
 }
 
 .delete-post button {
@@ -82,12 +82,26 @@ button {
 }
 
 #reply-link {
+  display: flex;
+  flex-direction: row;
+  justify-content: start;
   color: #2274a5;
   font-size: 1.75vmin;
+}
+
+#reply-link a {
+color: #2274a5
 }
 
 #post-nav-show {
   display: flex;
   flex-direction: row;
   justify-content: end;
+}
+
+#replies-populated {
+  margin-left: 40px;
+  background-color: rgb(156, 156, 156);
+  border-radius: 5%;
+  font-size: 1.75vmin;
 }

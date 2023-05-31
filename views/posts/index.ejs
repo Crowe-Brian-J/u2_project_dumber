@@ -19,17 +19,21 @@
               </div>
             </article>
             <article id="postNav">
-              <% console.log(p.replies) %>
-                <div id="reply-link">
-                  <a href="/posts/<%= p._id %>">Reply?</a>
-                </div>
-                <div>
-                  <% if (user?._id.toString()===(p.user.toString())) { %>
-                    <form action="/posts/<%= p._id %>?_method=DELETE" class="delete-post" method="POST">
-                      <button type="submit">Delete?</button>
-                    </form>
+              <div id="reply-link">
+                <a href="/posts/<%= p._id %>">
+                  <% if(p.replies.length> 0) { %>
+                    <div>View Replies</div>
                     <% } %>
-                </div>
+                      <div>Reply?</div>
+                </a>
+              </div>
+              <div>
+                <% if (user?._id.toString()===(p.user.toString())) { %>
+                  <form action="/posts/<%= p._id %>?_method=DELETE" class="delete-post" method="POST">
+                    <button type="submit">Delete?</button>
+                  </form>
+                  <% } %>
+              </div>
             </article>
           </div>
           <% })} %>
