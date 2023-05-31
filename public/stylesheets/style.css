@@ -1,9 +1,15 @@
 body {
-  color: #29a348;
-  background-color: #1c1c1a;
-  padding: 20px;
   font-family: 'Monomaniac One', sans-serif;
   font-size: 3vmin;
+  background-color: #1c1c1a;
+  padding: 20px;
+}
+
+#main-head {
+  color: #29a348;
+  display: flex;
+  flex-direction: row;
+  align-content: space-between;
 }
 
 a {
@@ -41,11 +47,6 @@ main {
   border-radius: 5%;
 }
 
-article {
-  border-top: solid 1px #2274a5;
-  border-bottom: solid 1px #1c1c1a;
-}
-
 article img {
   border-radius: 50%;
   height: 40px
@@ -53,4 +54,30 @@ article img {
 
 .delete-post button {
   color: red;
+}
+
+#postId {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  font-size: 2vmin;
+}
+
+#postNav {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  font-size: 1.75vmin;
+}
+
+#total-post {
+  border-top: solid 1px #2274a5;
+  border-bottom: solid 1px #1c1c1a;
+}
+
+button {
+  border: none;
+  background: none;
+  font-family: 'Monomaniac One', sans-serif;
+  font-size: 1.75vmin;
 }

@@ -3,25 +3,31 @@
   <form action="/posts" method="POST">
     <input type="text" name="postText" id="post-text" placeholder="What's on your mind, dummy?">
   </form>
-  <br><br>
+  <br>
   <main>
     <% if(posts){%>
       <% posts.reverse()%>
         <% posts.forEach((p)=> { %>
-          <article>
-            <%= p.postText %>
-              <br>
+          <div id="total-post">
+            <article id="postId">
+              <%= p.postText %>
+                <br>
+                <div id="avatar">
+                  <img alt="avatar" src="<%=p.userAvatar %>" referrerpolicy="no-referrer">&nbsp;
+                </div>
+            </article>
+            <article id="postNav">
               <!--Delete Post-->
-              <% if (user?._id.toString()===(p.user.toString())) {%>
-                <form action="/posts/<%= p._id %>?_method=DELETE" class="delete-post" method="POST">
-                  <label for="delete-post">Delete Post?</label>
-                  <button type="submit">X</button>
-                </form>
-                <% } %>
-                  <div id="avatar">
-                    <img alt="avatar" src="<%=p.userAvatar %>" referrerpolicy="no-referrer">&nbsp;<a href="">Reply?</a>
-                  </div>
-          </article>
+              <div>Reply?</div>
+              <div>
+                <% if (user?._id.toString()===(p.user.toString())) { %>
+                  <form action="/posts/<%= p._id %>?_method=DELETE" class="delete-post" method="POST">
+                    <button type="submit">Delete?</button>
+                  </form>
+                  <% } %>
+              </div>
+            </article>
+          </div>
           <% })} %>
   </main>
 
