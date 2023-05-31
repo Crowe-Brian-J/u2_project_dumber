@@ -16,7 +16,7 @@ const createReply = async (req, res) => {
   } catch (err) {
     console.log(err)
   }
-  res.redirect('/posts')
+  res.redirect(`/posts/${post._id}`)
 }
 
 const deleteReply = (req, res, next) => {
@@ -33,7 +33,7 @@ const deleteReply = (req, res, next) => {
       .save()
       .then(() => {
         //Redirect back to posts
-        res.redirect('/posts')
+        res.redirect(`/posts/${post._id}`)
       })
       .catch((err) => {
         //Let Express display an error

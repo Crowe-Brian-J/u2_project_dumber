@@ -30,7 +30,7 @@
               <div>
                 <% if (user?._id.toString()===(p.user.toString())) { %>
                   <form action="/posts/<%= p._id %>?_method=DELETE" class="delete-post" method="POST">
-                    <button type="submit">Delete?</button>
+                    <button type="submit">Delete</button>
                   </form>
                   <% } %>
               </div>

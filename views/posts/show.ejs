@@ -11,28 +11,35 @@
       <article id="post-nav-show">
         <% if (user?._id.toString()===(post.user.toString())) { %>
           <form action="/posts/<%= post._id %>?_method=DELETE" class="delete-post" method="POST"><button
-              type="submit">Delete?</button></form>
+              type="submit">Delete</button></form>
           <% } %>
       </article>
     </div>
   </main>
-  <% console.log(post.replies) %>
-    <% if(post.replies) { %>
-      <section id="replies-populated">
-        <% post.replies.forEach((r)=> { %>
-          <div>
-            <%= r.replyText %>
-          </div>
-          <div id="avatar">
-            <img src="<%= r.userAvatar %>" alt="avatar">
-          </div>
-          <% }) %>
+  <% if(post.replies) { %>
+    <section id="replies-populated">
+      <% post.replies.forEach((r)=> { %>
+        <div>
+          <%= r.replyText %>
+        </div>
+        <div id="avatar">
+          <img src="<%= r.userAvatar %>" alt="avatar">
+        </div>
+        <div>
+          <% console.log(post._id) %>
+            <% if(r.user.toString()===user?._id.toString()) { %>
+              <form action="/replies/<%= r._id  %>?_method=DELETE" class="delete-post" method="POST">
+                <button type="submit">Delete</button>
+              </form>
+              <% } %>
+        </div>
+        <% }) %>
+    </section>
+    <% } %>
+      <section id="reply-box">
+        <form action="/posts/<%= post._id %>/replies" method="POST">
+          <input type="text" name="replyText" id="post-text" placeholder="Got something to say?">
+        </form>
       </section>
-      <% } %>
-        <section id="reply-box">
-          <form action="/posts/<%= post._id %>/replies" method="POST">
-            <input type="text" name="replyText" id="post-text" placeholder="Got something to say?">
-          </form>
-        </section>
 
-        <%- include('../partials/footer.ejs') %>
+      <%- include('../partials/footer.ejs') %>
