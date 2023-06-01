@@ -17,11 +17,11 @@
     <nav class="green lighten-1">
       <div class="nav-wrapper">
         <a href="/posts" class="brand-logo right">dummer</a>
-        <ul id="nav-mobile" class="left hide-on-med-and-down">
+        <ul id="nav-mobile" class="left">
           <% if (user) { %>
-            <li><a href="/logout"><img src="https://i.imgur.com/FHjYyi0.png">&nbsp;logout</a></li>
+            <li><a href="/logout">logout</a></li>
             <% } else { %>
-              <li><a href="/auth/google"><img src="https://i.imgur.com/FHjYyi0.png">&nbsp;login</a></li>
+              <li><a href="/auth/google">login</a></li>
               <% } %>
                 <li><a href="/posts">feed</a></li>
                 <li><a href="/users">dummies</a></li>

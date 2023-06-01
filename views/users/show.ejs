@@ -1,30 +1,28 @@
 <%- include('../partials/header.ejs') %>
-
-  <div id="avatar"><img src="<%user?.avatar%>" alt="avatar" referrerpolicy="no-referrer"></div>
   <% if(posts) { %>
+    <div id="avatar-reply" class="center white-text">
+      <img src="<%= user.avatar %>" alt="user-avatar">&nbsp;
+      <%= user.name %>
+    </div>
     <% posts.reverse() %>
       <%posts.forEach((p)=> { %>
-        <% if (p.user.toString()===(user?._id.toString())) { %>
-          <div>
-            <%= p.postText %>
+        <div class="col s12 m7">
+          <div class="card horizontal">
+            <div class="card-stacked">
+              <div class="card-content">
+                <p class="black-text">
+                  <%= p.postText %>
+                </p>
+              </div>
+              <div class="card-action">
+                <a href="#">reply?</a>
+              </div>
+            </div>
           </div>
-          <% }})%>
-            <% } %>
-              <%- include('../partials/footer.ejs') %>
+        </div>
+        <% if (p.user.toString()===(user?._id.toString())) { %>
 
-                <div class="col s12 m7">
-                  <h2 class="header">Horizontal Card</h2>
-                  <div class="card horizontal">
-                    <div class="card-image">
-                      <img src="https://lorempixel.com/100/190/nature/6">
-                    </div>
-                    <div class="card-stacked">
-                      <div class="card-content">
-                        <p>I am a very simple card. I am good at containing small bits of information.</p>
-                      </div>
-                      <div class="card-action">
-                        <a href="#">This is a link</a>
-                      </div>
-                    </div>
-                  </div>
-                </div>
+          <% } %>
+            <% }) %>
+              <% } %>
+                <%- include('../partials/footer.ejs') %>
