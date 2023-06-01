@@ -13,14 +13,13 @@
 
 <body>
   <section id="main-head">
-    <h1>
-      <a href="/posts">
-        <%= title %>
-      </a>
-    </h1>
+    <a href="/posts">
+      <%= title %>
+    </a>
     <nav>
       <% if (user) { %>
-        <a href="/logout">LOG OUT</a> | <a href="/posts">FEED</a>
+        <a href="/logout" class="login">LOG OUT&nbsp;<img src="https://i.imgur.com/FHjYyi0.png"></a> | <a
+          href="/posts">FEED</a>
         <% } else { %>
           <a href="/auth/google" class="login">LOG IN&nbsp;<img src="https://i.imgur.com/FHjYyi0.png"></a>
           <% } %>

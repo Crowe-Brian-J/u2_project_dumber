@@ -46,8 +46,8 @@ app.use((req, res, next) => {
 })
 
 app.use('/', indexRouter)
-app.use('/users', usersRouter)
 //Mount these routers to root because not all paths for a related/nested resource begin the same
+app.use('/', usersRouter)
 app.use('/', postsRouter)
 app.use('/', repliesRouter)
 
