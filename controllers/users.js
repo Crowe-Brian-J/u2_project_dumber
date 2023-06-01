@@ -8,9 +8,9 @@ const index = async (req, res) => {
 
 const show = async (req, res) => {
   const user = await User.findById(req.params.id)
-  console.log(user)
+  const posts = await Post.find({})
   // const posts = await Post.findById(req.)
-  res.render('users/show', { title: 'dummer', user })
+  res.render('users/show', { title: 'dummer', user, posts })
 }
 
 module.exports = {

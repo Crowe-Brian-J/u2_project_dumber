@@ -24,7 +24,7 @@ a {
   height: 34px;
 }
 
-.login img {
+.hide-on-med-and-down img {
   height: 30px;
 }
 
@@ -51,7 +51,7 @@ main {
   height: 20px;
 }
 
-#avatar img {
+#avatar img, nav img {
   border-radius: 50%;
   height: 40px;
 }

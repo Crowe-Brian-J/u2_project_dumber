@@ -1,3 +1,12 @@
 <%- include('../partials/header.ejs') %>
-
-  <%- include('../partials/footer.ejs') %>
+  <% users.forEach((u)=> { %>
+    <% console.log(u) %>
+      <a href="/users/<%=u._id%>">
+        <div id="total-users">
+          <article id="user-id">
+            <%= u.name %>&nbsp;&nbsp;<img alt="avatar" src="<%=u.avatar%>">
+          </article>
+        </div>
+      </a>
+      <% }) %>
+        <%- include('../partials/footer.ejs') %>
