@@ -58,12 +58,14 @@
         </div>
         <% }) %>
           <% } %>
-            <section id="reply-box">
-              <form action="/posts/<%= post._id %>/replies" method="POST">
-                <input type="text" name="replyText" id="post-text" placeholder="Got something to say?">
-                <button class="btn-floating btn-large waves-effect waves-light green lighten-1"
-                  type="submit">reply</button>
-              </form>
-            </section>
+            <% if (user) { %>
+              <section id="reply-box">
+                <form action="/posts/<%= post._id %>/replies" method="POST">
+                  <input type="text" name="replyText" id="post-text" placeholder="Got something to say?">
+                  <button class="btn-floating btn-large waves-effect waves-light green lighten-1"
+                    type="submit">reply</button>
+                </form>
+              </section>
+              <% } %>
   </main>
   <%- include('../partials/footer.ejs') %>

@@ -1,12 +1,14 @@
 <%- include('../partials/header.ejs') %>
   <br>
-  <% users.forEach((u)=> { %>
-    <a class="" href="/users/<%=u._id%>">
-      <div id="total-users">
-        <article class="green-text text-lighten-1 valign-wrapper" id="user-id">
-          <img alt="avatar" src="<%=u.avatar%>">&nbsp;&nbsp;<%= u.name %>
-        </article>
-      </div>
-    </a>
-    <% }) %>
-      <%- include('../partials/footer.ejs') %>
+  <% if (user) { %>
+    <% users.forEach((u)=> { %>
+      <a class="" href="/users/<%=u._id%>">
+        <div id="total-users">
+          <article class="green-text text-lighten-1 valign-wrapper" id="user-id">
+            <img alt="avatar" src="<%=u.avatar%>">&nbsp;&nbsp;<%= u.name %>
+          </article>
+        </div>
+      </a>
+      <% }) %>
+        <% } %>
+          <%- include('../partials/footer.ejs') %>
