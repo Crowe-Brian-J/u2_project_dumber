@@ -26,11 +26,10 @@
                   </div>
                   <div>
                     <% if (user?._id.toString()===(p.user.toString())) { %>
-                      <% console.log(user?._id) %>
-                        <form action="/posts/<%= p._id %>?_method=DELETE" class="delete-post" method="POST">
-                          <button type="submit">DELETE</button>
-                        </form>
-                        <% } %>
+                      <form action="/posts/<%= p._id %>?_method=DELETE" class="delete-post" method="POST">
+                        <button type="submit">DELETE</button>
+                      </form>
+                      <% } %>
                   </div>
                 </div>
               </div>
