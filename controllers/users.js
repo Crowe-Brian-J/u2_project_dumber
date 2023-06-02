@@ -7,10 +7,10 @@ const index = async (req, res) => {
 }
 
 const show = async (req, res) => {
-  const user = await User.findById(req.params.id)
+  const userOne = await User.findById(req.params.id)
   const posts = await Post.find({})
   // const posts = await Post.findById(req.)
-  res.render('users/show', { title: 'dummer', user, posts })
+  res.render('users/show', { title: 'dummer', userOne, posts })
 }
 
 module.exports = {
