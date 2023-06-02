@@ -5,51 +5,50 @@
       <input type="text" name="postText" id="post-text" placeholder="What's on your mind, dummy?">
       <button class="btn-floating btn-large waves-effect waves-light green lighten-1" type="submit">submit</button>
     </form>
-    <% } %>
-      <br>
-      <main>
-        <% if(posts){%>
-          <% posts.reverse()%>
-            <% posts.forEach((p)=> { %>
-              <div class="col s12 m7">
-                <div class="card horizontal">
-                  <div class="card-stacked">
-                    <div class="card-content">
-                      <div>
-                        <a href="/users/<%=p.user%>" id="avatar">
-                          <img alt="avatar" src="<%=p.userAvatar %>" referrerpolicy="no-referrer">&nbsp;
-                        </a>
-                        <p class="black-text">
-                          <%= p.postText %>
-                        </p>
-                      </div>
+    <br>
+    <main>
+      <% if(posts){%>
+        <% posts.reverse()%>
+          <% posts.forEach((p)=> { %>
+            <div class="col s12 m7">
+              <div class="card horizontal">
+                <div class="card-stacked">
+                  <div class="card-content">
+                    <div>
+                      <a href="/users/<%=p.user%>" id="avatar">
+                        <img alt="avatar" src="<%=p.userAvatar %>" referrerpolicy="no-referrer">&nbsp;
+                      </a>
+                      <p class="black-text">
+                        <%= p.postText %>
+                      </p>
                     </div>
-                    <div class="card-action valign-wrapper">
-                      <div>
-                        <a class="blue-text text-lighten-1" href="/posts/<%= p._id%>">
-                          <% if (user) { %>
-                            reply?&nbsp;&nbsp;
-                            <% } %>
-                              <% if(p.replies.length> 0) { %>
-                                &nbsp;&nbsp;view
-                                replies
-                                <% } %>
-                        </a>
-                      </div>
-                      <div>
-                        <% if (user?._id.toString()===(p.user.toString())) { %>
-                          <form action="/posts/<%= p._id %>?_method=DELETE" class="delete-post" method="POST">
-                            <button type="submit">DELETE</button>
-                          </form>
+                  </div>
+                  <div class="card-action valign-wrapper">
+                    <div>
+                      <a class="blue-text text-lighten-1" href="/posts/<%= p._id%>">
+                        <% if (user) { %>
+                          reply?&nbsp;&nbsp;
                           <% } %>
-                      </div>
+                            <% if(p.replies.length> 0) { %>
+                              &nbsp;&nbsp;view
+                              replies
+                              <% } %>
+                      </a>
+                    </div>
+                    <div>
+                      <% if (user?._id.toString()===(p.user.toString())) { %>
+                        <form action="/posts/<%= p._id %>?_method=DELETE" class="delete-post" method="POST">
+                          <button type="submit">DELETE</button>
+                        </form>
+                        <% } %>
                     </div>
                   </div>
                 </div>
               </div>
-              </article>
-              </div>
-              <% })} %>
-      </main>
-
+            </div>
+            </article>
+            </div>
+            <% })} %>
+    </main>
+    <% } %>
       <%- include('../partials/footer.ejs') %>
