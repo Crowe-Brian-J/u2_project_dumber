@@ -1,8 +1,8 @@
-# **_Dumber_**
+# **_dummer_**
 
 #### (Because none of us is as dumb as all of us) -Despair.com
 
-## 25 May 2023
+## 25 May 2023 - 2 June 2023
 
 ### by Brian Crowe
 
@@ -10,18 +10,16 @@
 
 ## **_Description_**
 
-I rewrote this this morning because I was originally going to do some sort of smart kitchen app. i.e. food in fridge's expiration date, warnings to get rid of it before trash day (compensating for holidays), creating a shopping list based on previous receipts (may have been a little ambitious). But I really want twitter back to what it was in 2009/10/11. I remember being able to get just the headline news/sports/opinions of those I wanted to follow, in the order they posted them. They could only use 140 characters, so they had to be succinct. It forced them to be creative. I recognize I'm never getting that back, so I wanted to build what I want.
+dummer is a twitter-lite clone. It is dumber than twitter, but in that sense, it's also smarter because it isn't trying to be all things. It's a simple micro-blog that looks clean-ish. It allows users to post and reply to posts after an OAuth login with their google accounts. I also implemented Materialize to style my app. This will impact my future interactions with Materialize because I tried to add it at the end (as we are instructed to get functionality correct before styling), but in this case, it should be done in conjunction with core content. I say that as templates are a copy-paste relationship. The process was akin to a kindergartener (me) drawing a picture, then being given a template to fit the picture in, then me cutting out the portions of my picture to collage (is that a verb?) it into the template with as minimal a loss to the original vision as possible. _If_ I had bothered to notice this beforehand, it would have been more of a collaboration which I believe would have resulted in a superior product.
 
 ---
 
 ## **_Relationships_**
 
-_Known_
-
-- Users have a 1:M relationship with posts
-- Users have a 1:M relationship (hopefully) with followers (also users)
-- Feed has a M:M relationship with posts (based on followers) --> Maybe one feed filtered by followers would be easier?
-- Tweets may eventually be able to chain in a post, where the chain would have to follow, but also branch
+- Users have a 1:M relationship with posts.
+- Posts have a 1:M relationship with replies.
+- Feed is populated as a list in reverse-timestamp order.
+- User index is populated as a list in timestamp order.
 
 ---
 
@@ -31,6 +29,7 @@ _Known_
 - Express
 - Mongoose/MongoDB
 - Heroku
+- Materialize
 
 ---
 
@@ -39,10 +38,9 @@ _Known_
 As A User (AAU)
 
 - AAU, I should be able to make a post with a maximum of 140 characters
-- AAU, I should be able to delete my posts
+- AAU, only I should be able to delete my posts
 - AAU, I should be able to login with Google
 - AAU, I should be able to see a user's full array of posts starting with the newest post
-- AAU, I should see a full array of posts made by people/bots I follow (main feed)
 
 ---
 
@@ -52,17 +50,28 @@ As A User (AAU)
   - Posts
   - Replies
 - Use OAuth Authentication (GoogleAPI)
-  - Seems similar to what we did for OAuth in Lesson 5/25
 - Implement Basic Authorization
   - Only user can post from own account
   - Only original user can delete own post
 - Have CRD Data Operations
-  - Can't edit/update Twitter - Can't do it for dumber
+  - Can't edit/update Twitter - Can't do it for dummer
   - Create Post
+  - Read All Users Posts
   - Read User Posts
-  - Read All Followed Users Posts
+  - Post Reply to User Post
   - Delete Post
+  - Delete Reply
 - Be Styled
   - Materialize
   - Custom CSS When Necessary
 - Deployed on Heroku
+
+---
+
+## **_Credits_**
+
+- Materialize
+- Heroku
+- Me
+- Our Wonderful Instructors and TAs
+- Twitter for annoying me and not being the same as it was in 2009

@@ -20,11 +20,12 @@
         <ul id="nav-mobile" class="left">
           <% if (user) { %>
             <li><a href="/logout">logout</a></li>
+            <li><a href="/posts">feed</a></li>
+            <li><a href="/users">dummies</a></li>
             <% } else { %>
               <li><a href="/auth/google">login</a></li>
               <% } %>
-                <li><a href="/posts">feed</a></li>
-                <li><a href="/users">dummies</a></li>
+
         </ul>
       </div>
     </nav>
