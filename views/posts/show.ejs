@@ -47,7 +47,7 @@
                   <div>
                     <% if(r.user.toString()===user?._id.toString()) { %>
                       <form action="/replies/<%= r._id %>?_method=DELETE" class="delete-post" method="POST">
-                        <button type="submit">Delete</button>
+                        <button type="submit">delete</button>
                       </form>
                       <% } %>
                   </div>
@@ -62,7 +62,7 @@
               <form action="/posts/<%= post._id %>/replies" method="POST">
                 <input type="text" name="replyText" id="post-text" placeholder="Got something to say?">
                 <button class="btn-floating btn-large waves-effect waves-light green lighten-1"
-                  type="submit">submit</button>
+                  type="submit">reply</button>
               </form>
             </section>
   </main>
