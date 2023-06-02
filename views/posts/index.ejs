@@ -2,7 +2,7 @@
 
   <form action="/posts" method="POST">
     <input type="text" name="postText" id="post-text" placeholder="What's on your mind, dummy?">
-    <button class="btn-floating btn-large waves-effect waves-light green lighten-1" type="submit">Submit</button>
+    <button class="btn-floating btn-large waves-effect waves-light green lighten-1" type="submit">submit</button>
   </form>
   <br>
   <main>
@@ -17,7 +17,7 @@
                     <a href="/users/<%=p.user%>" id="avatar">
                       <img alt="avatar" src="<%=p.userAvatar %>" referrerpolicy="no-referrer">&nbsp;
                     </a>
-                    <p class="black-text text-lighten-1">
+                    <p class="black-text">
                       <%= p.postText %>
                     </p>
                   </div>
@@ -42,26 +42,6 @@
               </div>
             </div>
           </div>
-          <!-- <div id="total-post">
-            <article id="postId">
-              <a href="/posts/<%= p._id %>">
-                <%= p.postText %>
-              </a>
-              <br>
-              <div id="avatar">
-                <img alt="avatar" src="<%=p.userAvatar %>" referrerpolicy="no-referrer">&nbsp;
-              </div>
-            </article>
-            <article id="postNav">
-              <div id="reply-link">
-                <a href="/posts/<%= p._id %>">
-                  <% if(p.replies.length> 0) { %>
-                    <div>View Replies</div>
-                    <% } %>
-                      <div>Reply?</div>
-                </a>
-              </div> -->
-
           </article>
           </div>
           <% })} %>

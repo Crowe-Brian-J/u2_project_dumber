@@ -1,51 +1,69 @@
 <%- include('../partials/header.ejs') %>
-
-  <main id="show-post">
-    <div id="total-post">
-      <article id="postId">
-        <%= post.postText %>
-          <div id="avatar">
-            <a href="/users/<%= user._id %>"><img src="<%= post.userAvatar %>" alt="avatar"
-                referrerpolicy="no-referer">&nbsp;</a>
+  <main>
+    <div class="col s12 m7">
+      <div class="card horizontal">
+        <div class="card-stacked">
+          <div class="card-content">
+            <div>
+              <a href="/users/<%=post.user%>" id="avatar">
+                <img alt="avatar" src="<%=post.userAvatar %>" referrerpolicy="no-referrer">&nbsp;
+              </a>
+              <p class="black-text">
+                <%= post.postText %>
+              </p>
+            </div>
           </div>
-      </article>
-      <article id="post-nav-show">
-        <% if (user?._id.toString()===(post.user.toString())) { %>
-          <form action="/posts/<%= post._id %>?_method=DELETE" class="delete-post" method="POST"><button
-              type="submit">Delete</button></form>
-          <% } %>
-      </article>
+          <div class="card-action valign-wrapper">
+            <div>
+              <div>
+                <% if (user?._id.toString()===(post.user.toString())) { %>
+                  <form action="/posts/<%= post._id %>?_method=DELETE" class="delete-post" method="POST">
+                    <button type="submit">DELETE</button>
+                  </form>
+                  <% } %>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
     </div>
-  </main>
-  <% if(post.replies) { %>
-    <section id="replies-populated">
-      <br>
-      <% post.replies.forEach((r)=> { %>
-        <article id="reply-post">
-          <div id="reply-delete">
-            <div>
-              <%= r.replyText %>
-            </div>
-            <div>
-              <% if(r.user.toString()===user?._id.toString()) { %>
-                <form action="/replies/<%= r._id  %>?_method=DELETE" class="delete-post" method="POST">
-                  <button type="submit">Delete</button>
-                </form>
-                <% } %>
-            </div>
-          </div>
-          <div id="avatar-reply">
-            <img src="<%= r.userAvatar %>" alt="avatar">
-          </div>
-        </article>
-        <% }) %>
-          <br>
-    </section>
-    <% } %>
-      <section id="reply-box">
-        <form action="/posts/<%= post._id %>/replies" method="POST">
-          <input type="text" name="replyText" id="post-text" placeholder="Got something to say?">
-        </form>
-      </section>
 
-      <%- include('../partials/footer.ejs') %>
+
+    <% if(post.replies) { %>
+      <% post.replies.forEach((r)=> { %>
+        <div class="col s12 m7">
+          <div class="card horizontal grey lighten-1">
+            <div class="card-stacked">
+              <div class="card-content">
+                <a href="/users/<%= r.user %>" id="avatar">
+                  <img src="<%=r.userAvatar%>" alt="avatar">
+                </a>
+                <p class="black-text">
+                  <%= r.replyText %>
+                </p>
+              </div>
+              <div class="card-action valign-wrapper">
+                <div>
+                  <div>
+                    <% if(r.user.toString()===user?._id.toString()) { %>
+                      <form action="/replies/<%= r._id %>?_method=DELETE" class="delete-post" method="POST">
+                        <button type="submit">Delete</button>
+                      </form>
+                      <% } %>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <% }) %>
+          <% } %>
+            <section id="reply-box">
+              <form action="/posts/<%= post._id %>/replies" method="POST">
+                <input type="text" name="replyText" id="post-text" placeholder="Got something to say?">
+                <button class="btn-floating btn-large waves-effect waves-light green lighten-1"
+                  type="submit">submit</button>
+              </form>
+            </section>
+  </main>
+  <%- include('../partials/footer.ejs') %>
