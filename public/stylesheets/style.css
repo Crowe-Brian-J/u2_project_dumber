@@ -13,7 +13,6 @@ body {
 }
 
 a {
-  color: #29a348;
   text-decoration: none;
 }
 
@@ -29,21 +28,21 @@ a {
 }
 
 #post-text {
-  background-color: #e6e8e6;
+  background-color: white;
   height: 5vmin;
   width: 80%;
   font-family: 'Monomaniac One', sans-serif;
   font-size: 1.75vmin;
 }
 
-main {
-  display: grid;
-  grid-template-rows: auto;
-  gap: 1vmin;
-  align-items: center;
-  background-color: #e6e8e6;
-  padding: 2vmin;
-  border-radius: 5%;
+.card-action {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+
+.card-action a {
+  font-size: 1.75vmin;
 }
 
 #avatar-reply img {
